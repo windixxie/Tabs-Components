@@ -11,7 +11,7 @@ class TabLink {
     
     // Using the custom data attribute get the associated Item element
 
-    this.itemElement = document.querySelector(`.tab-item[data-tab="${this.data}]`);
+    this.itemElement = document.querySelector(`.tabs-item[data-tab="${this.data}"]`);
     
     // Using the Item element, create a new instance of the TabItem class
 
@@ -27,7 +27,7 @@ class TabLink {
   select() {
     // Get all of the elements with the tabs-link class
 
-    const links = document.querySelectorAll(".tab-link");
+    const links = document.querySelectorAll(".tabs-link");
 
     // Using a loop or the forEach method remove the 'tabs-link-selected' class from all of the links
 
@@ -39,11 +39,6 @@ class TabLink {
     
     // Call the select method on the item associated with this link
     this.tabItem.select();
-  }
-  
-  deselect() {
-    this.element.classList.remove("tabs-link-selected");
-    this.tabItem.deselect();
   }
 }
 
@@ -63,10 +58,6 @@ class TabItem {
     // Add a class named "tabs-item-selected" to this element
     this.element.classList.add("tabs-item-selected");
   }
-  
-  deselect() {
-    this.element.classList.remove("tabs-item-selected");
-  }
 }
 
 /* START HERE: 
@@ -78,20 +69,5 @@ class TabItem {
 - In your .forEach() method's callback function, return a new instance of TabLink and pass in each link as a parameter
 
 */
-
-// creates all instances of TabLink
-class Tabs {
-  constructor() {
-    const linkElements = Array.from(document.querySelectorAll(".tabs-link"));
-
-    // creates all instances of TabLink
-    this.links = linkElements.map(link => {
-      return new TabLink(link);
-    });
-
-    // store currently selected tab.
-    this.currentTab = this.links[0];
-  }
-}
-
-const tabs = new Tabs();
+const linkElements = document.querySelectorAll(".tabs-link");
+linkElements.forEach(element => element = new TabLink(element));
