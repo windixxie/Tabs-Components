@@ -1,19 +1,19 @@
-// creates all instances of TabLink
-class Tabs {
-  constructor() {
-    const linkElements = Array.from(document.querySelectorAll(".tabs-link"));
+// // creates all instances of TabLink
+// class Tabs {
+//   constructor() {
+//     const linkElements = Array.from(document.querySelectorAll(".tabs-link"));
 
-    // creates all instances of TabLink
-    this.links = linkElements.map(link => {
-      return new TabLink(link);
-    });
+//     // creates all instances of TabLink
+//     this.links = linkElements.map(link => {
+//       return new TabLink(link);
+//     });
 
-    // store currently selected tab.
-    this.currentTab = this.links[0];
-  }
-}
+//     // store currently selected tab.
+//     this.currentTab = this.links[0];
+//   }
+// }
 
-const tabs = new Tabs();
+// const tabs = new Tabs();
 
 class TabLink {
   constructor(element) {
@@ -57,10 +57,10 @@ class TabLink {
     this.tabItem.select();
   }
 
-  deselect() {
-    this.element.classList.remove('tabs-link-selected');
-    this.tabItem.deselect();
-  }
+  // deselect() {
+  //   this.element.classList.remove('tabs-link-selected');
+  //   this.tabItem.deselect();
+  // }
 }
 
 class TabItem {
@@ -80,9 +80,9 @@ class TabItem {
     this.element.classList.add("tabs-item-selected");
   }
   
-  deselect() {
-    this.element.classList.remove('tabs-item-selected');
-  }
+  // deselect() {
+  //   this.element.classList.remove('tabs-item-selected');
+  // }
 }
 
 /* START HERE: 
